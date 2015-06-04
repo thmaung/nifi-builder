@@ -1,5 +1,18 @@
-## Work in Progress
+#### Table of Contents
 
-Please excuse us as we transition this code into the public domain.
+1. [Overview](#overview)
+2. [Setup](#setup)
+3. [Usage - Configuration options and etc](#usage)
 
-Downloads, discussion, and patches are still welcome!
+### Overview
+
+This rake task will build the Apache NiFi downloaded from https://nifi.incubator.apache.org/download.html
+
+### Setup
+
+* Ensure simp-rack-helpers rubygem is installed.
+
+### Usage
+
+* rake build:rpm[<path_to_tar.gz_file>,<mock_environment>,<unique>,<snapshot_build>]
+

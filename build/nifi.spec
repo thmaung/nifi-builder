@@ -21,10 +21,10 @@ RPM build of Apache NiFi
 %build
 
 %install
-#[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 mkdir -p %{buildroot}/%{prefix}/
 
+# It goes into the nifi-0.1.0-incubator directory by default so we are going back a level.
+# This way it installs to /opt/nifi/nifi-0.1.0-incubator and then create the default symlink.
 dir='../%{name}-%{version}-%{release}'
 test -d $dir && cp -r $dir %{buildroot}/%{prefix}/
 
