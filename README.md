@@ -14,5 +14,5 @@ This rake task will build the Apache NiFi downloaded from https://nifi.incubator
 
 ### Usage
 
-* rake build:rpm[<path_to_tar.gz_file>,<mock_environment>,<unique>,<snapshot_build>]
-
+* rake clean
+* rake build:rpm[path_to_tar.gz,mock_environment]
