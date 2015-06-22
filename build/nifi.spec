@@ -7,7 +7,8 @@ Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Buildarch: noarch
-Requires: java >= 1.7.0
+# Requires jdk or java-devel but problems with this line for now
+#Requires: java >= 1.7.0
 Packager: Onyx Point
 
 Prefix: /opt/%{name}
@@ -36,6 +37,7 @@ mkdir -p %{buildroot}/%{prefix}/
 %files
 %defattr(0640,root,root,0750)
 %{prefix}/
+%attr(755,-,-) %{prefix}/%{name}-%{version}-%{release}/bin/nifi.sh
 
 %post
 #!/bin/sh
@@ -45,7 +47,9 @@ if [ -d %{prefix}/%{name}-%{version}-%{release} ]; then
 fi
 
 %postun
-# Post uninstall stuff
+if [ -L %{prefix}/default ]; then
+  /bin/rm -f %{prefix}/default
+fi
 
 %changelog
 * Thu Jun 4 2015 Than H. Maung <than.maung@onyxpoint.com>
